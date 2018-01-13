@@ -132,7 +132,7 @@ MonoBehaviour:
   speed: 3
   collisionDamage: 100
   projectile: {fileID: 1245522436811364, guid: c51aa933150caca44a816c0e90c14191, type: 2}
-  shotsPerSecond: 1
+  shotsPerSecond: 0.2
   projectileSpeed: 5
 --- !u!114 &114779337322833006
 MonoBehaviour:

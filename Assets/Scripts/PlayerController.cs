@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     private Transform gunPos;
     private GameObject projectilesParrent;
+    private Health health;
     private float oldEmissionRate;
     private float newEmissionRate;
     private float oldStartSpeed;
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour {
         oldStartSpeed = 0.2f;
         newEmissionRate = 60f;
         newStartSpeed = 0.4f;
+
+        health = gameObject.GetComponent<Health>();
     }
 	
 	// Update is called once per frame
@@ -110,5 +113,18 @@ public class PlayerController : MonoBehaviour {
         shot.transform.parent = projectilesParrent.transform;
         shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
         //TODO play sound
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Projectile projectile = col.gameObject.GetComponent<Projectile>();
+        EnemyController enemy = col.gameObject.GetComponent<EnemyController>();
+        if (projectile)
+        {
+            health.GetDamage(projectile.GetDamage());
+        }
+        else if(enemy){
+            health.GetDamage(enemy.GetCollisionDamage());
+        }
     }
 }

@@ -122,9 +122,11 @@ public class PlayerController : MonoBehaviour {
         if (projectile)
         {
             health.GetDamage(projectile.GetDamage());
+            projectile.Hit();
         }
         else if(enemy){
             health.GetDamage(enemy.GetCollisionDamage());
+            Destroy(enemy.gameObject);
         }
     }
 }

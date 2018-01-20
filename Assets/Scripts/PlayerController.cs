@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     private Transform gunPos;
     private GameObject projectilesParrent;
     private Health health;
+    private Shield shield;
+    private float lastHitTime;
     private float oldEmissionRate;
     private float newEmissionRate;
     private float oldStartSpeed;
@@ -21,8 +23,6 @@ public class PlayerController : MonoBehaviour {
     float xmax;
     float ymin;
     float ymax;
-
-    private Transform playerTransform;
 	// Use this for initialization
 	void Start () {
         float distance = transform.position.z - Camera.main.transform.position.z;
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
         newStartSpeed = 0.4f;
 
         health = gameObject.GetComponent<Health>();
-
+        shield = gameObject.GetComponent<Shield>();
     }
 	
 	// Update is called once per frame
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour {
         float newX = Mathf.Clamp(transform.position.x, xmin, xmax);
         float newY = Mathf.Clamp(transform.position.y, ymin, ymax);
         transform.position = new Vector3(newX, newY, transform.position.z);
+        HandleShieldRegen();
     }
 
     private void DisengageAfterBurners()
@@ -124,12 +125,23 @@ public class PlayerController : MonoBehaviour {
         EnemyController enemy = col.gameObject.GetComponent<EnemyController>();
         if (projectile)
         {
-            health.GetDamage(projectile.GetDamage());
+            float damage = projectile.GetDamage();
+            float absorbedDamage = shield.AbsorbDamage(damage);
+            health.GetDamage(absorbedDamage);
             projectile.Hit();
+            lastHitTime = Time.time;
         }
         else if(enemy){
             health.GetDamage(enemy.GetCollisionDamage());
             Destroy(enemy.gameObject);
+        }
+    }
+
+    void HandleShieldRegen()
+    {
+        if (Time.time >= lastHitTime + shield.regenDelay)
+        {
+            shield.RegenShield();
         }
     }
 

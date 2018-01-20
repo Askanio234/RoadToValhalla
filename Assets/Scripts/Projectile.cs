@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-    public int damage = 50;
+    public float damage = 50f;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour {
 		
 	}
 
-    public int GetDamage()
+    public float GetDamage()
     {
         return damage;
     }

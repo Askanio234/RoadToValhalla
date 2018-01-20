@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour {
 
     void HandleBar()
     {
-        fillAmmount = (float)playerHealth.currentHealth / (float)playerHealth.maxHealth;
+        fillAmmount = playerHealth.currentHealth / playerHealth.maxHealth;
         content.fillAmount = fillAmmount;
     }
 }

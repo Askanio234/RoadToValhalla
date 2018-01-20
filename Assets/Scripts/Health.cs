@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-    public int currentHealth = 100;
-    public int maxHealth;
+    public float currentHealth = 100f;
+    public float maxHealth;
 	// Use this for initialization
 	void Start () {
         maxHealth = currentHealth;
@@ -14,7 +14,7 @@ public class Health : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void GetDamage(int damage)
+    public void GetDamage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -22,7 +22,7 @@ public class Health : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    public void HealDamage(int ammount)
+    public void HealDamage(float ammount)
     {
         currentHealth += ammount;
         if (currentHealth > maxHealth)

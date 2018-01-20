@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject projectile;
     public float projectileSpeed;
     public float firingRate;
-
+    
     private Transform gunPos;
     private GameObject projectilesParrent;
     private Health health;
@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
     float xmax;
     float ymin;
     float ymax;
+
+    private Transform playerTransform;
 	// Use this for initialization
 	void Start () {
         float distance = transform.position.z - Camera.main.transform.position.z;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour {
         newStartSpeed = 0.4f;
 
         health = gameObject.GetComponent<Health>();
+
     }
 	
 	// Update is called once per frame
@@ -129,4 +132,5 @@ public class PlayerController : MonoBehaviour {
             Destroy(enemy.gameObject);
         }
     }
+
 }

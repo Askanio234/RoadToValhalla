@@ -437,8 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f923d5e6149044582e59f7c39c39d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 6
+  minTime: 5
+  maxTime: 15
   enemyPrefab: {fileID: 1597852210657700, guid: bacc51d30810a614d83fe61a6ed89990,
     type: 2}
 --- !u!1 &865955377 stripped
@@ -486,8 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f923d5e6149044582e59f7c39c39d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 6
+  minTime: 5
+  maxTime: 16
   enemyPrefab: {fileID: 1597852210657700, guid: bacc51d30810a614d83fe61a6ed89990,
     type: 2}
 --- !u!1 &1125571621
@@ -517,8 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f923d5e6149044582e59f7c39c39d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 6
+  minTime: 5
+  maxTime: 15
   enemyPrefab: {fileID: 1597852210657700, guid: bacc51d30810a614d83fe61a6ed89990,
     type: 2}
 --- !u!4 &1125571623

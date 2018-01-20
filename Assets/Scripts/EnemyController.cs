@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
     private Health health;
     private Transform gun;
     private GameObject projectilesParrent;
+    private GameObject player;
 	// Use this for initialization
 	void Start () {
         health = gameObject.GetComponent<Health>();
@@ -22,11 +23,23 @@ public class EnemyController : MonoBehaviour {
         {
             projectilesParrent = new GameObject("Projectiles");
         }
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += Vector3.down * speed * Time.deltaTime;
+        float step = speed * Time.deltaTime;
+        //Move to Player
+        if (player)
+        {
+            transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, step);
+        } else
+        {
+            //Plain movement down
+            transform.position += Vector3.down * step;
+        }
+
         float probability = Time.deltaTime * shotsPerSecond;
         if (Random.value < probability)
         {
@@ -57,4 +70,5 @@ public class EnemyController : MonoBehaviour {
         //shot.transform.parent = projectilesParrent.transform;
         shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
     }
+
 }

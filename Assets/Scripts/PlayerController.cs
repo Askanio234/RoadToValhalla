@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    public Sprite damagedSprite;
     public ParticleSystem leftEngine, rightEngine;
     public float speed = 10f;
     public float padding = 2f;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject projectilesParrent;
     private Health health;
     private Shield shield;
+    private SpriteRenderer spriteRenderer;
     private float lastHitTime;
     private float oldEmissionRate;
     private float newEmissionRate;
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 
         health = gameObject.GetComponent<Health>();
         shield = gameObject.GetComponent<Shield>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
@@ -131,9 +134,15 @@ public class PlayerController : MonoBehaviour {
             projectile.Hit();
             lastHitTime = Time.time;
         }
+        //Collision damage is not absorbed by shield
         else if(enemy){
             health.GetDamage(enemy.GetCollisionDamage());
             Destroy(enemy.gameObject);
+        }
+        //Handle sprite change
+        if (health.currentHealth/health.maxHealth <= 0.5)
+        {
+            spriteRenderer.sprite = damagedSprite;
         }
     }
 

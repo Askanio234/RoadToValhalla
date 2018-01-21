@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public Sprite damagedSprite;
     public ParticleSystem leftEngine, rightEngine;
+    public ParticleSystem shieldEffect;
     public float speed = 10f;
     public float padding = 2f;
     public GameObject projectile;
@@ -130,6 +131,7 @@ public class PlayerController : MonoBehaviour {
         {
             float damage = projectile.GetDamage();
             float absorbedDamage = shield.AbsorbDamage(damage);
+            hadleShieldEffect(absorbedDamage, damage);
             health.GetDamage(absorbedDamage);
             projectile.Hit();
             lastHitTime = Time.time;
@@ -153,5 +155,12 @@ public class PlayerController : MonoBehaviour {
             shield.RegenShield();
         }
     }
-
+    //Shield effect will pop up if any damage was absorbed
+    void hadleShieldEffect(float absorbedDamage, float damage)
+    {
+        if (absorbedDamage != damage)
+        {
+            shieldEffect.Play();
+        }
+    }
 }

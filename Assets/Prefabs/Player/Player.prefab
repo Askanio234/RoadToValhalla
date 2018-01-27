@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141350705954936}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.34, z: -0}
+  m_LocalPosition: {x: 0, y: -0.34, z: 0}
   m_LocalScale: {x: 2.8571427, y: 2.8571439, z: 2.8571439}
   m_Children: []
   m_Father: {fileID: 4951546319489406}
@@ -313,6 +313,7 @@ MonoBehaviour:
   rightEngine: {fileID: 198240128960644620}
   shieldEffect: {fileID: 198817465309661982}
   speed: 10
+  rotationSpeed: 10
   padding: 1
   projectile: {fileID: 1246015471931760, guid: bea02027c5f8f9a43ab824866f3238ca, type: 2}
   projectileSpeed: 15
@@ -7099,7 +7100,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 991554584
+  randomSeed: 1745678375
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9254,7 +9255,7 @@ ParticleSystem:
     range: {x: 0, y: 1}
     separateAxes: 0
   RotationBySpeedModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -9340,7 +9341,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: 3.1415925
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -10489,7 +10490,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public ParticleSystem leftEngine, rightEngine;
     public ParticleSystem shieldEffect;
     public float speed = 10f;
+    public float rotationSpeed = 1000f;
     public float padding = 2f;
     public GameObject projectile;
     public float projectileSpeed;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     private Health health;
     private Shield shield;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
     private float lastHitTime;
     private float oldEmissionRate;
     private float newEmissionRate;
@@ -50,17 +52,59 @@ public class PlayerController : MonoBehaviour {
         health = gameObject.GetComponent<Health>();
         shield = gameObject.GetComponent<Shield>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        //HandlePlayerInput();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            InvokeRepeating("Fire", 0.00001f, firingRate);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            CancelInvoke("Fire");
+        }
+        HandleShieldRegen();
+    }
+
+    void FixedUpdate()
+    {
+        HandlePlayerInput1();
+    }
+
+    private void HandlePlayerInput1()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        if (vertical > 0) {
+            EngageAfterBurners();
+        } else {
+            DisengageAfterBurners();
+        }
+
+        Vector3 movement = new Vector3(horizontal, vertical, 0.0f);
+
+        rb.velocity = movement * speed;
+
+        float newX = Mathf.Clamp(transform.position.x, xmin, xmax);
+        float newY = Mathf.Clamp(transform.position.y, ymin, ymax);
+
+        rb.position = new Vector3(newX, newY, transform.position.z);
+    }
+
+    /*private void HandlePlayerInput()
+    {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += Vector3.right * speed * Time.deltaTime; 
+            transform.position += Vector3.right * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -87,8 +131,7 @@ public class PlayerController : MonoBehaviour {
         float newX = Mathf.Clamp(transform.position.x, xmin, xmax);
         float newY = Mathf.Clamp(transform.position.y, ymin, ymax);
         transform.position = new Vector3(newX, newY, transform.position.z);
-        HandleShieldRegen();
-    }
+    }*/
 
     private void DisengageAfterBurners()
     {

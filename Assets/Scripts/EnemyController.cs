@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour {
         {
             projectilesParrent = new GameObject("Projectiles");
         }
-
+        projectilesParrent = GameObject.Find("Projectiles");
         player = GameObject.FindGameObjectWithTag("Player");
     }
 	
@@ -33,6 +33,9 @@ public class EnemyController : MonoBehaviour {
         //Move to Player
         if (player)
         {
+            Vector3 dir = transform.position - player.transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, step);
         } else
         {
@@ -67,7 +70,7 @@ public class EnemyController : MonoBehaviour {
     {
         Vector3 startPos = gun.position;
         GameObject shot = Instantiate(projectile, startPos, projectile.transform.rotation);
-        //shot.transform.parent = projectilesParrent.transform;
+        shot.transform.parent = projectilesParrent.transform;
         shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
     }
 

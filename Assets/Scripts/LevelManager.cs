@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    public float autoLoadInSecs;
+
 	// Use this for initialization
 	void Start () {
-		
+		if(autoLoadInSecs <= 0)
+        {
+            Debug.Log("auto load disabled use positive num");
+        } else
+        {
+            Invoke("LoadNextLevel", autoLoadInSecs);
+        }
 	}
 	
 	// Update is called once per frame

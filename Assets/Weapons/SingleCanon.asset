@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186c84983b94f0a46b34b6f22818ca4e, type: 3}
+  m_Name: SingleCanon
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 5e1c12b7e504f6c40980518601b8efdb, type: 3}
+  gunPos: {fileID: 0}
+  weaponSlot: 0
+  name: 
+  cost: 0
+  rateOfFireSecs: 2
+  clipCount: 0
+  reloadTime: 0
+  projectile: {fileID: 1611902113242030, guid: 9642d3d7af819c7488300e09a9b47def, type: 2}
+  numProjectilesInVolley: 1
+  timeBetweenProjectilesInVolley: 0
+  projectileSpeed: 10

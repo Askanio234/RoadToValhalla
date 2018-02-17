@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+
     public Sprite damagedSprite;
     public ParticleSystem leftEngine, rightEngine;
     public ParticleSystem shieldEffect;
@@ -11,8 +12,8 @@ public class PlayerController : MonoBehaviour {
     public float padding = 2f;
     public GameObject projectile;
     public float projectileSpeed;
+
     public float firingRate;
-    
     private Transform gunPos;
     private GameObject projectilesParrent;
     private Health health;
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour {
         shield = gameObject.GetComponent<Shield>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+
     }
 	
 	// Update is called once per frame
@@ -165,6 +168,11 @@ public class PlayerController : MonoBehaviour {
         shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
         //TODO play sound
     }
+
+    /*private void Fire()
+    {
+        courseWeapon.Fire();
+    }*/
 
     void OnTriggerEnter2D(Collider2D col)
     {

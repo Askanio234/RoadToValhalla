@@ -17,16 +17,23 @@ public class Weapon : ScriptableObject {
     public float timeBetweenProjectilesInVolley;
     public float projectileSpeed = 10f;
 
+    private Vector2 direction;
 
-    public void Fire(Transform gunPos)
+    public IEnumerator FireInBursts(Transform gunPos, float time)
     {
-        for (int i = 0; i <= numProjectilesInVolley; i++)
+        for (int i = 1; i <= numProjectilesInVolley; i++)
         {
-            GameObject shot = Instantiate(projectile, gunPos.position, Quaternion.identity);
-            shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            GameObject shot = Instantiate(projectile, gunPos.position, gunPos.rotation);
+            shot.GetComponent<Rigidbody2D>().AddForce(shot.transform.up * projectileSpeed);
+            yield return new WaitForSeconds(time);
         }
     }
 
+    public void Fire(Transform gunPos)
+    {
+        GameObject shot = Instantiate(projectile, gunPos.position, gunPos.rotation);
+        shot.GetComponent<Rigidbody2D>().AddForce(shot.transform.up * projectileSpeed);
+    }
 
     
 

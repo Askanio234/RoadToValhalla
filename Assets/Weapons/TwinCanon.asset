@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186c84983b94f0a46b34b6f22818ca4e, type: 3}
   m_Name: TwinCanon
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: ccd010079ee7a1f4d855ea19ee781c6c, type: 3}
+  image: {fileID: 21300000, guid: 5e1c12b7e504f6c40980518601b8efdb, type: 3}
   weaponSlot: 0
   name: 
   cost: 0
-  rateOfFireSecs: 0.5
+  rateOfFireSecs: 2
   clipCount: 0
   reloadTime: 0
   projectile: {fileID: 1117972999483124, guid: 8396bbc43915c4e4080e3bc9d9de500e, type: 2}
   numProjectilesInVolley: 5
   timeBetweenProjectilesInVolley: 0.1
-  projectileSpeed: 10
+  projectileSpeed: 1000

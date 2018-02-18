@@ -7553,7 +7553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4871d0eb674a35541891314b3cd2846d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  courseWeapon: {fileID: 11400000, guid: 097e02e36b4172b4182d62d8566872ba, type: 2}
+  courseWeapon: {fileID: 11400000, guid: 9ceedef722dccf54994e24fded14ab7c, type: 2}
 --- !u!212 &1146557430
 SpriteRenderer:
   m_ObjectHideFlags: 0

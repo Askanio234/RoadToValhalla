@@ -3966,7 +3966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  maxSpeed: 40
+  enginePower: 10
   speedText: {fileID: 1766108419}
 --- !u!1 &1092085978
 GameObject:

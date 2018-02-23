@@ -32,7 +32,11 @@ public class Weapon : ScriptableObject {
     public void Fire(Transform gunPos)
     {
         GameObject shot = Instantiate(projectile, gunPos.position, gunPos.rotation);
-        shot.GetComponent<Rigidbody2D>().AddForce(shot.transform.up * projectileSpeed);
+        Rigidbody2D shotRB = shot.GetComponent<Rigidbody2D>();
+        Debug.Log(gunPos.parent.parent.name);
+        shotRB.velocity = gunPos.parent.parent.GetComponent<Rigidbody2D>().velocity;
+        Debug.Log(shotRB.velocity);
+        shotRB.AddForce(shot.transform.up * projectileSpeed);
     }
 
     

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23374205235535248}
   - component: {fileID: 50205106347480882}
   - component: {fileID: 114649514009693130}
+  - component: {fileID: 58708890729782222}
   m_Layer: 0
   m_Name: shot2
   m_TagString: Untagged
@@ -104,6 +105,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58708890729782222
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117972999483124}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114649514009693130
 MonoBehaviour:
   m_ObjectHideFlags: 1

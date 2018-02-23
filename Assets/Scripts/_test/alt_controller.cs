@@ -5,36 +5,33 @@ using UnityEngine.UI;
 
 public class alt_controller : MonoBehaviour {
     public float rotationSpeed = 100f;
-    public float maxSpeed = 40;
+    public float enginePower = 1f;
     public Text speedText;
 
-    float currentSpeed = 0;
-    float movingAccel = 2;
-    float brakingAccel = 1;
-	// Use this for initialization
+    private Rigidbody2D rb;
 	void Start () {
-		
+        rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
         transform.Rotate(new Vector3(0, 0, -h * rotationSpeed * Time.deltaTime));
 
-        if (v == 0)
+
+        if (v>0)
         {
-            currentSpeed -= brakingAccel * Time.deltaTime;
-        } else
+            rb.AddForce(transform.up * enginePower);
+        
+        //For now allow to stop without turning ship around
+        } else if (v < 0)
         {
-            currentSpeed += v * movingAccel * Time.deltaTime;
+            rb.AddForce(-transform.up * enginePower);
         }
+        
 
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, maxSpeed); 
-
-        transform.Translate(new Vector3(0, currentSpeed * Time.deltaTime, 0));
-
-        speedText.text = "Speed: " + currentSpeed.ToString("#.0");
+        speedText.text = "Velocity: " + rb.velocity.ToString("#.0");
 	}
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50945769494697724}
   - component: {fileID: 61781523056336700}
   - component: {fileID: 114466641654325998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: enemyshot-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245522436811364}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 3.731127, y: 3.664912, z: 0}
-  m_LocalScale: {x: 1.1241422, y: 1.124142, z: 1.124142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.492657, y: -13.140324, z: 0}
+  m_LocalScale: {x: 1.124142, y: -1.124142, z: 1.124142}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50945769494697724
 Rigidbody2D:
   serializedVersion: 4

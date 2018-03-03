@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-    public float speed = 3f;
+    public float enginePower = 0.5f;
     public int collisionDamage = 100;
     public GameObject projectile;
     public float shotsPerSecond = 0.2f;
-    public float projectileSpeed = 5f;
+    public float firingDistance = 12f;
+    public float maxSpeed = 5f;
+    public float projectileSpeed = 1000f;
 
     private Health health;
     private Transform gun;
     private GameObject projectilesParrent;
     private GameObject player;
+    private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
         health = gameObject.GetComponent<Health>();
@@ -25,30 +28,48 @@ public class EnemyController : MonoBehaviour {
         }
         projectilesParrent = GameObject.Find("Projectiles");
         player = GameObject.FindGameObjectWithTag("Player");
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
-	
+    void FixedUpdate()
+    {
+        //Very rough algorithm for leading player pos
+        Vector2 target = player.transform.position;
+        Vector2 enemy = gameObject.transform.position;
+        float distance = Vector2.Distance(enemy, target);//distance in between in meters
+        float travelTime = distance / maxSpeed / 2f; //time in seconds the shot would need to arrive at the target
+        Vector3 aimPoint = target + player.GetComponent<Rigidbody2D>().velocity * travelTime;
+
+        Vector3 dir = transform.position - aimPoint;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        rb.AddForce(-transform.up * enginePower);
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+        }
+    }
 	// Update is called once per frame
 	void Update () {
-        float step = speed * Time.deltaTime;
-        //Move to Player
-        if (player)
+        if (isTimeToFire(shotsPerSecond))
         {
-            Vector3 dir = transform.position - player.transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-            transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, step);
-        } else
-        {
-            //Plain movement down
-            transform.position += Vector3.down * step;
+            if (Vector2.Distance(gameObject.transform.position, player.transform.position) < firingDistance)
+            {
+                Fire();
+            }
         }
+    }
 
+    bool isTimeToFire(float shotsPerSecond)
+    {
         float probability = Time.deltaTime * shotsPerSecond;
         if (Random.value < probability)
         {
-            Fire();
+            return true;
+        } else
+        {
+            return false;
         }
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -68,10 +89,14 @@ public class EnemyController : MonoBehaviour {
 
     void Fire()
     {
-        Vector3 startPos = gun.position;
-        GameObject shot = Instantiate(projectile, startPos, projectile.transform.rotation);
+        Vector2 startPos = gun.position;
+        GameObject shot = Instantiate(projectile, startPos, gun.rotation);
         shot.transform.parent = projectilesParrent.transform;
-        shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
+        Rigidbody2D shotRB = shot.GetComponent<Rigidbody2D>();
+        shotRB.velocity = rb.velocity;
+        print(shotRB.velocity);
+        shotRB.AddForce(-shot.transform.up * projectileSpeed);
+        print(shotRB.velocity);
     }
 
 }

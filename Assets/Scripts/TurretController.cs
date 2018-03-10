@@ -21,7 +21,12 @@ public class TurretController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        RotateTowardsMouse(Weapon.rotationSpeed);
+        if (Input.GetMouseButtonDown(0) && isReadyToFire(Time.timeSinceLevelLoad, lastTimeFired, firingRate))
+        {
+            Weapon.Fire(gunPos);
+            lastTimeFired = Time.timeSinceLevelLoad;
+        }
     }
 
     private bool isReadyToFire(float time, float lastTimeFired, float fireRate)
@@ -34,5 +39,13 @@ public class TurretController : MonoBehaviour {
         {
             return false;
         }
+    }
+
+    private void RotateTowardsMouse(float rotationSpeed)
+    {
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
 }

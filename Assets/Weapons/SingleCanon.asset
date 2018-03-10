@@ -21,4 +21,5 @@ MonoBehaviour:
   projectile: {fileID: 1611902113242030, guid: 9642d3d7af819c7488300e09a9b47def, type: 2}
   numProjectilesInVolley: 1
   timeBetweenProjectilesInVolley: 0
-  projectileSpeed: 1200
+  projectileSpeed: 1800
+  rotationSpeed: 5

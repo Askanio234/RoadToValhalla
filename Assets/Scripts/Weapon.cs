@@ -16,6 +16,7 @@ public class Weapon : ScriptableObject {
     public int numProjectilesInVolley = 1;
     public float timeBetweenProjectilesInVolley;
     public float projectileSpeed = 10f;
+    public float rotationSpeed = 5f;
 
     private Vector2 direction;
 

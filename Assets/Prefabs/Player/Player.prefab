@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4932303169899652}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4015993776669184}
   - component: {fileID: 198817465309661982}
   - component: {fileID: 199715587946179392}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShieldEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4460011912579152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightEngine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 4767613831290944}
   - component: {fileID: 114102738183246614}
   - component: {fileID: 212082578664143300}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeaponCourse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4936626278075630}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftEngine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4645750873262614}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4469660634836872}
   - component: {fileID: 114952180838219128}
   - component: {fileID: 212783856625471780}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeaponTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4750144132673018}
   - component: {fileID: 198240128960644620}
   - component: {fileID: 199239518219348664}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlameRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 50585040794428562}
   - component: {fileID: 114018743303126494}
   - component: {fileID: 114423158157375754}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4794879629948992}
   - component: {fileID: 198004621734914170}
   - component: {fileID: 199794940295271006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlameLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1582698796640240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.19, z: 0}
+  m_LocalPosition: {x: 0, y: 1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4932303169899652}
@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106663512204868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4469660634836872}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4871d0eb674a35541891314b3cd2846d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: 097e02e36b4172b4182d62d8566872ba, type: 2}
+  Weapon: {fileID: 11400000, guid: 9ceedef722dccf54994e24fded14ab7c, type: 2}
 --- !u!114 &114423158157375754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10796,7 +10796,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

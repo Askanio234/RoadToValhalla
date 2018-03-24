@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: ccd010079ee7a1f4d855ea19ee781c6c, type: 3}
   weaponSlot: 0
-  name: 
+  name: Dual-Linked machine gun
   cost: 0
   rateOfFireSecs: 2
   clipCount: 0
@@ -23,3 +23,4 @@ MonoBehaviour:
   timeBetweenProjectilesInVolley: 0.1
   projectileSpeed: 1000
   rotationSpeed: 5
+  description: Description

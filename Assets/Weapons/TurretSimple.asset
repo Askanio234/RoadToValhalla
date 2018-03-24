@@ -22,4 +22,4 @@ MonoBehaviour:
   numProjectilesInVolley: 1
   timeBetweenProjectilesInVolley: 0
   projectileSpeed: 1200
-  rotationSpeed: 1
+  rotationSpeed: 3

@@ -2,39 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEditor;
+using System;
 
 public class ShopController : MonoBehaviour {
-    public GameObject coursePannelList;
-    public GameObject itemTemplate;
-    [Header("Course Weapons")]
-    public Weapon[] courseWeaponsList;
-    private Weapon selectedWeapon;
+
+
+    public GameObject descriptionPannel;
+
+    public BaseItem selectedWeapon;
     private Weapon installedWeapon;
 	// Use this for initialization
 	void Start () {
-        PopulateCourseWeapons(courseWeaponsList);
+        UpdateDescriptionPanel(selectedWeapon);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    private void PopulateCourseWeapons(Weapon[] weapons)
-    {
-        foreach (var item in weapons)
-        {
-            GameObject menuItem = Instantiate(itemTemplate);
-            menuItem.transform.SetParent(coursePannelList.transform);
-            GameObject menuItemImage = menuItem.transform.Find("ItemSprite").gameObject;
-            menuItemImage.GetComponent<Image>().sprite = item.image;
-            GameObject menuItemName = menuItem.transform.Find("ItemName").gameObject;
-            menuItemName.GetComponent<Text>().text = item.name;
-
-        }
+        
     }
-    public void WeaponSelected(GameObject weapon)
+
+
+    public void WeaponSelected(GameObject button)
     {
-        print(weapon);
+        selectedWeapon = button.GetComponent<ShopTemplateRender>().item;
+        UpdateDescriptionPanel(selectedWeapon);
+    }
+
+    private void UpdateDescriptionPanel(BaseItem item)
+    {
+        GameObject nameText = descriptionPannel.transform.Find("Name").gameObject;
+        nameText.GetComponent<Text>().text = item.name;
+        GameObject descriptionText = descriptionPannel.transform.Find("Description").gameObject;
+        descriptionText.GetComponent<Text>().text = item.description;
+        GameObject statsText = descriptionPannel.transform.Find("StatsText").gameObject;
+        if (item.GetType() == typeof(Weapon))
+        {
+            statsText.GetComponent<Text>().text = "Damage: " + item.projectile.GetComponent<Projectile>().damage.ToString();
+        }
     }
 }

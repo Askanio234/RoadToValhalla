@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Weapon", menuName ="Weapons")]
-public class Weapon : ScriptableObject {
 
-    public Sprite image;
+[CreateAssetMenu(fileName ="New Weapon", menuName ="Weapons")]
+public class Weapon : BaseItem
+{
+
+    //public Sprite image;
     public WeaponSlot weaponSlot;
-    public new string name;
-    public int cost;
+    //public new string name;
+    //public int cost;
     public float rateOfFireSecs;
     public float clipCount;
     public float reloadTime;
-    public GameObject projectile;
+    //public GameObject projectile;
     public int numProjectilesInVolley = 1;
     public float timeBetweenProjectilesInVolley;
     public float projectileSpeed = 10f;
     public float rotationSpeed = 5f;
-    public string description = "Description";
 
     private Vector2 direction;
 

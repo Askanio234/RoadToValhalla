@@ -9,4 +9,6 @@ public abstract class BaseItem : ScriptableObject
     public int cost;
     public string description = "Description";
     public GameObject projectile;
+    public bool isBought;
+    public bool isInstalled;
 }

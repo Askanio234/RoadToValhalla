@@ -12,6 +12,7 @@ public class WeaponController : MonoBehaviour {
     private float lastTimeFired = -2.0f;
 	// Use this for initialization
 	void Start () {
+        Weapon = GameKeeper.gameKeeper.courseWeapon;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         gunPos = gameObject.transform.Find("Gun");
         spriteRenderer.sprite = Weapon.image;

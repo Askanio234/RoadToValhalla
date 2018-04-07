@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Name: SingleCanon
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 5e1c12b7e504f6c40980518601b8efdb, type: 3}
+  name: Gaus Cannon
+  cost: 400
+  description: Very Big Cannon lots of damage
+  projectile: {fileID: 1611902113242030, guid: 9642d3d7af819c7488300e09a9b47def, type: 2}
+  isBought: 1
+  isInstalled: 1
   weaponSlot: 0
-  name: SingleCanon
-  cost: 0
   rateOfFireSecs: 1
   clipCount: 0
   reloadTime: 0
-  projectile: {fileID: 1611902113242030, guid: 9642d3d7af819c7488300e09a9b47def, type: 2}
   numProjectilesInVolley: 1
   timeBetweenProjectilesInVolley: 0
   projectileSpeed: 1800
   rotationSpeed: 5
-  description: Very Big Cannon lots of damage

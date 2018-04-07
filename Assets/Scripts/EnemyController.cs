@@ -94,7 +94,6 @@ public class EnemyController : MonoBehaviour {
         shot.transform.parent = projectilesParrent.transform;
         Rigidbody2D shotRB = shot.GetComponent<Rigidbody2D>();
         shotRB.velocity = rb.velocity;
-        print(shotRB.velocity);
         shotRB.AddForce(-shot.transform.up * projectileSpeed);
         print(shotRB.velocity);
     }

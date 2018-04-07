@@ -55,8 +55,6 @@ public class PlayerController : MonoBehaviour {
             DisengageAfterBurners();
             //rb.AddForce(-transform.up * enginePower);
         }
-
-
         speedText.text = "Velocity: " + rb.velocity.ToString("#.0");
     }
     // Update is called once per frame

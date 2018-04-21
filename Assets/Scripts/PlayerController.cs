@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour {
     public Sprite damagedSprite;
     public ParticleSystem leftEngine, rightEngine;
     public ParticleSystem shieldEffect;
+    public ParticleSystem thrusterRightUp, thrusrerRightDown,
+                          thrusterLeftUp, thrusterLeftDown;
     public float rotationSpeed = 100f;
     public float enginePower = 1f;
+    public float thrusterPower = 10f;
     public Text speedText;
     public LevelController levelController;
-
 
     private Health health;
     private Shield shield;
@@ -55,6 +57,22 @@ public class PlayerController : MonoBehaviour {
         } else {
             DisengageAfterBurners();
             //rb.AddForce(-transform.up * enginePower);
+        }
+        if (Input.GetButton("Dodge Left"))
+        {
+            rb.AddForce(-transform.right * thrusterPower);
+            SwitchRightThrusters(true);
+        } else
+        {
+            SwitchRightThrusters(false);
+        }
+        if (Input.GetButton("Dodge Right"))
+        {
+            rb.AddForce(transform.right * thrusterPower);
+            SwitchLeftThrusters(true);
+        } else
+        {
+            SwitchLeftThrusters(false);
         }
         speedText.text = "Velocity: " + rb.velocity.ToString("#.0");
     }
@@ -134,5 +152,29 @@ public class PlayerController : MonoBehaviour {
         {
             shieldEffect.Play();
         }
+    }
+
+    private void SwitchThrusters(ParticleSystem thruster_up, ParticleSystem thruster_down, bool switchOn)
+    {
+        ParticleSystem[] thrusters = { thruster_up, thruster_down };
+        foreach (ParticleSystem thruster in thrusters) {
+            if (switchOn)
+            {
+                thruster.Play();
+            } else
+            {
+                thruster.Stop();
+            }
+        }
+    }
+
+    private void SwitchLeftThrusters(bool switchOn)
+    {
+        SwitchThrusters(thrusterLeftUp, thrusterLeftDown, switchOn);
+    }
+
+    private void SwitchRightThrusters(bool switchOn)
+    {
+        SwitchThrusters(thrusterRightUp, thrusrerRightDown, switchOn);
     }
 }

@@ -479,6 +479,7 @@ MonoBehaviour:
   rotationSpeed: 50
   enginePower: 1
   speedText: {fileID: 0}
+  levelController: {fileID: 0}
 --- !u!114 &114952180838219128
 MonoBehaviour:
   m_ObjectHideFlags: 1

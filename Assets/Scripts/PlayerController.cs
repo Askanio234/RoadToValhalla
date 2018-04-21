@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float rotationSpeed = 100f;
     public float enginePower = 1f;
     public Text speedText;
+    public LevelController levelController;
 
 
     private Health health;
@@ -25,8 +26,8 @@ public class PlayerController : MonoBehaviour {
    
 	// Use this for initialization
 	void Start () {
-        
 
+        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
         oldEmissionRate = leftEngine.emission.rateOverTimeMultiplier;
         oldStartSpeed = 0.2f;
         newEmissionRate = 60f;
@@ -106,6 +107,11 @@ public class PlayerController : MonoBehaviour {
         else if(enemy){
             health.GetDamage(enemy.GetCollisionDamage());
             Destroy(enemy.gameObject);
+        }
+        if (health.currentHealth <= 0)
+        {
+            //play destroy animation, sound
+            levelController.Lose();
         }
         //Handle sprite change
         if (health.currentHealth/health.maxHealth <= 0.5)

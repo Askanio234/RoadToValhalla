@@ -8,7 +8,7 @@ public class GameKeeper : MonoBehaviour {
     public int energyCredits = 1000;
     public Weapon courseWeapon;
     // array should hold n+1 levels
-    public bool[] levelUnlocks;
+    public int maxLelvelReached = 0;
 
     void Awake()
         //singleton pattern

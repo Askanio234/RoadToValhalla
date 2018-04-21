@@ -1390,7 +1390,7 @@ MonoBehaviour:
   levelNum: 1
   levelManager: {fileID: 971355922}
   winUI: {fileID: 371055018}
-  isTimedLevel: 0
+  isTimedLevel: 1
   timeForLevel: 20
 --- !u!4 &1895317410
 Transform:

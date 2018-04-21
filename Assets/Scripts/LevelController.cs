@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour {
     public int levelNum = 1;
@@ -29,11 +30,18 @@ public class LevelController : MonoBehaviour {
     {
         winUI.SetActive(true);
         Invoke("LoadShop", 3f);
-        GameKeeper.gameKeeper.levelUnlocks[levelNum] = true;
+        GameKeeper.gameKeeper.maxLelvelReached = levelNum;
     }
 
     private void LoadShop()
     {
         levelManager.LoadLevel("012 shop");
+    }
+
+    public void Lose()
+    {
+        winUI.GetComponentInChildren<Text>().text = "Mission Failed";
+        winUI.SetActive(true);
+        Invoke("LoadShop", 3f);
     }
 }

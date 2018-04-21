@@ -11,7 +11,7 @@ public class LevelUnlocker : MonoBehaviour {
 	void Start () {
         for (int i = 0; i < levelButtons.Length; i++)
         {
-            if (GameKeeper.gameKeeper.levelUnlocks[i] == false)
+            if (i > GameKeeper.gameKeeper.maxLelvelReached)
             {
                 levelButtons[i].interactable = false;
             }

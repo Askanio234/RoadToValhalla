@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
     public Sprite damagedSprite;
+    public ParticleSystem damageSparks;
     public ParticleSystem leftEngine, rightEngine;
     public ParticleSystem shieldEffect;
     public ParticleSystem thrusterRightUp, thrusrerRightDown,
@@ -14,8 +15,8 @@ public class PlayerController : MonoBehaviour {
     public float enginePower = 1f;
     public float thrusterPower = 10f;
     public Text speedText;
-    public LevelController levelController;
 
+    private LevelController levelController;
     private Health health;
     private Shield shield;
     private SpriteRenderer spriteRenderer;
@@ -135,6 +136,7 @@ public class PlayerController : MonoBehaviour {
         if (health.currentHealth/health.maxHealth <= 0.5)
         {
             spriteRenderer.sprite = damagedSprite;
+            damageSparks.Play();
         }
     }
 

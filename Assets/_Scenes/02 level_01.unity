@@ -998,6 +998,12 @@ Prefab:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 178276472}
+    - target: {fileID: 114952180838219128, guid: c263ff52c1f51364a9b1367014cbe363,
+        type: 2}
+      propertyPath: Weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dc1b91355ae5ca4ca01bef4bf7d6258,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c263ff52c1f51364a9b1367014cbe363, type: 2}
   m_IsPrefabParent: 0

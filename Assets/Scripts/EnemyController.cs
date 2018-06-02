@@ -95,7 +95,6 @@ public class EnemyController : MonoBehaviour {
         Rigidbody2D shotRB = shot.GetComponent<Rigidbody2D>();
         shotRB.velocity = rb.velocity;
         shotRB.AddForce(-shot.transform.up * projectileSpeed);
-        print(shotRB.velocity);
     }
 
 }

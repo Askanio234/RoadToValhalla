@@ -24,8 +24,16 @@ public class TurretController : MonoBehaviour {
         RotateTowardsMouse(Weapon.rotationSpeed);
         if (Input.GetMouseButtonDown(0) && isReadyToFire(Time.timeSinceLevelLoad, lastTimeFired, firingRate))
         {
-            Weapon.Fire(gunPos);
-            lastTimeFired = Time.timeSinceLevelLoad;
+            if (Weapon.numProjectilesInVolley == 1)
+            {
+                Weapon.Fire(gunPos);
+                lastTimeFired = Time.timeSinceLevelLoad;
+            }
+            else
+            {
+                StartCoroutine(Weapon.FireInBursts(gunPos, Weapon.timeBetweenProjectilesInVolley));
+                lastTimeFired = Time.timeSinceLevelLoad;
+            }
         }
     }
 

@@ -193,11 +193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  timeFuel: 10
+  timeFuel: 6
   acceleration: 25
   turnOnAfrerSecs: 0.2
-  rotateSpeed: 900
-  maxSpeed: 600
+  rotateSpeed: 300
+  maxSpeed: 100
   explosionObj: {fileID: 1681006826997116}
 --- !u!198 &198290503916972350
 ParticleSystem:

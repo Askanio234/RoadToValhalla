@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour {
     }
     void FixedUpdate()
     {
-        //Very rough algorithm for leading player pos
+        //Very aprox algorithm for leading player pos
         Vector2 target = player.transform.position;
         Vector2 enemy = gameObject.transform.position;
         float distance = Vector2.Distance(enemy, target);//distance in between in meters

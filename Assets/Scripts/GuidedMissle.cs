@@ -62,7 +62,7 @@ public class GuidedMissle : Projectile {
     {
         if (Time.timeSinceLevelLoad < instantiatedAt + timeFuel)
         {
-            Vector2 direction = (Vector2)target.transform.position - rb.position;
+            /*Vector2 direction = (Vector2)target.transform.position - rb.position;
             direction.Normalize();
             float rotateAmount = Vector3.Cross(direction, transform.up).z;
             rb.angularVelocity = -rotateAmount * rotateSpeed;
@@ -70,10 +70,23 @@ public class GuidedMissle : Projectile {
             if (rb.velocity.magnitude > maxSpeed)
             {
                 rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+            }*/
+            Vector2 targetPos = target.transform.position;
+            Vector2 misslePos = gameObject.transform.position;
+            float distance = Vector2.Distance(misslePos, targetPos);//distance in between in meters
+            float travelTime = distance / maxSpeed / 1.5f; //time in seconds the missle would need to arrive at the target
+            Vector3 aimPoint = targetPos + target.GetComponent<Rigidbody2D>().velocity * travelTime;
+            Vector3 dir = transform.position - aimPoint;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+            rb.AddForce(transform.up * acceleration);
+            if (rb.velocity.magnitude > maxSpeed)
+            {
+                rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
             }
         } else
         {
-            Explosion.Play();
+            //Explosion.Play();
             Destroy(gameObject);
         }
     }

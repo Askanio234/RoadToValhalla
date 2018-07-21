@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
+    public GameObject floatText;
     public float enginePower = 0.5f;
     public int collisionDamage = 100;
     public GameObject projectile;
@@ -78,6 +79,7 @@ public class EnemyController : MonoBehaviour {
         if (projectile)
         {
             health.GetDamage(projectile.GetDamage());
+            showFloatingText(projectile.GetDamage());
             projectile.Hit();
         }
     }
@@ -85,6 +87,13 @@ public class EnemyController : MonoBehaviour {
     public int GetCollisionDamage()
     {
         return collisionDamage;
+    }
+
+    void showFloatingText(float damage)
+    {
+        TextMesh text = floatText.GetComponent<TextMesh>();
+        text.text = string.Format("{0:F0}", damage);
+        Instantiate(floatText, transform.position, Quaternion.identity);
     }
 
     void Fire()

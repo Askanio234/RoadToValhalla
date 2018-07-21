@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fc79489c4db3740a4f3b4b43d6e250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatText: {fileID: 1084596645759434, guid: d9aec40045f2fd74f8c7b9a036da3052, type: 2}
   enginePower: 1
   collisionDamage: 100
   projectile: {fileID: 1245522436811364, guid: c51aa933150caca44a816c0e90c14191, type: 2}

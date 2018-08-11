@@ -15,14 +15,14 @@ MonoBehaviour:
   name: Missle Turret
   cost: 0
   description: Fires Salvo of Missles
-  projectile: {fileID: 1621553754551770, guid: 0eaeaad4bb3d5d04d97e45a1a0336c80, type: 2}
+  projectile: {fileID: 1987896013904702, guid: 0eaeaad4bb3d5d04d97e45a1a0336c80, type: 2}
   isBought: 0
   isInstalled: 0
   weaponSlot: 1
-  rateOfFireSecs: 1
+  rateOfFireSecs: 3
   clipCount: 0
   reloadTime: 0
   numProjectilesInVolley: 3
-  timeBetweenProjectilesInVolley: 0.1
+  timeBetweenProjectilesInVolley: 0.2
   projectileSpeed: 100
   rotationSpeed: 2

@@ -75,9 +75,18 @@ public class EnemyController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         Projectile projectile = col.gameObject.GetComponent<Projectile>();
-
-        if (projectile)
+        GuidedMissle missle = col.gameObject.GetComponent<GuidedMissle>();
+ 
+        if (missle)
         {
+            print("in Missle");
+            health.GetDamage(missle.GetDamage());
+            showFloatingText(missle.GetDamage());
+            missle.Explode();
+            missle.Hit();
+        } else
+        {
+            print("in projectile");
             health.GetDamage(projectile.GetDamage());
             showFloatingText(projectile.GetDamage());
             projectile.Hit();

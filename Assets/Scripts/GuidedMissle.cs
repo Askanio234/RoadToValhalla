@@ -13,24 +13,22 @@ public class GuidedMissle : Projectile {
     private GameObject target;
     private Rigidbody2D rb;
     private ParticleSystem Engine;
-    private ParticleSystem Explosion;
-    public GameObject explosionObj; 
+    public GameObject explosionObj;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         instantiatedAt = Time.timeSinceLevelLoad;
         rb = gameObject.GetComponent<Rigidbody2D>();
         Engine = gameObject.GetComponentInChildren<ParticleSystem>();
-        Explosion = explosionObj.GetComponent<ParticleSystem>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		if (Time.timeSinceLevelLoad >= instantiatedAt + turnOnAfrerSecs) {
+    }
+
+    // Update is called once per frame
+    void FixedUpdate() {
+        if (Time.timeSinceLevelLoad >= instantiatedAt + turnOnAfrerSecs) {
             Engine.Play();
             Engage();
         }
-	}
+    }
 
     void LockOnTarget()
     {
@@ -44,7 +42,7 @@ public class GuidedMissle : Projectile {
         {
             print("No target");
         }
-        
+
     }
 
     void Engage()
@@ -57,20 +55,15 @@ public class GuidedMissle : Projectile {
             FlyTowards(target);
         }
     }
+    public void Explode()
+    {
+        Instantiate(explosionObj, transform.position, transform.rotation);
+    }
 
     void FlyTowards(GameObject target)
     {
         if (Time.timeSinceLevelLoad < instantiatedAt + timeFuel)
         {
-            /*Vector2 direction = (Vector2)target.transform.position - rb.position;
-            direction.Normalize();
-            float rotateAmount = Vector3.Cross(direction, transform.up).z;
-            rb.angularVelocity = -rotateAmount * rotateSpeed;
-            rb.AddForce(transform.up * acceleration);
-            if (rb.velocity.magnitude > maxSpeed)
-            {
-                rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
-            }*/
             Vector2 targetPos = target.transform.position;
             Vector2 misslePos = gameObject.transform.position;
             float distance = Vector2.Distance(misslePos, targetPos);//distance in between in meters
@@ -86,8 +79,8 @@ public class GuidedMissle : Projectile {
             }
         } else
         {
-            //Explosion.Play();
             Destroy(gameObject);
         }
     }
+
 }

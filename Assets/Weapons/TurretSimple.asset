@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Name: TurretSimple
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: cb2a7d27f2bc6eb46a3becde6ef6b96a, type: 3}
+  name: Standard Turret
+  cost: 100
+  description: Simple standard turret
+  projectile: {fileID: 1611902113242030, guid: 9642d3d7af819c7488300e09a9b47def, type: 2}
+  isBought: 1
+  isInstalled: 1
   weaponSlot: 1
-  name: 
-  cost: 0
   rateOfFireSecs: 0.3
   clipCount: 0
   reloadTime: 0
-  projectile: {fileID: 1611902113242030, guid: 9642d3d7af819c7488300e09a9b47def, type: 2}
   numProjectilesInVolley: 1
   timeBetweenProjectilesInVolley: 0
   projectileSpeed: 1200

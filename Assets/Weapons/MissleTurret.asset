@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: cb2a7d27f2bc6eb46a3becde6ef6b96a, type: 3}
   name: Missle Turret
-  cost: 0
+  cost: 200
   description: Fires Salvo of Missles
   projectile: {fileID: 1987896013904702, guid: 0eaeaad4bb3d5d04d97e45a1a0336c80, type: 2}
   isBought: 0

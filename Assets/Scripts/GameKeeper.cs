@@ -7,6 +7,7 @@ public class GameKeeper : MonoBehaviour {
     public ShopController shopController;
     public int energyCredits = 1000;
     public Weapon courseWeapon;
+    public Weapon turretWeapon;
     // array should hold n+1 levels
     public int maxLelvelReached = 0;
 
@@ -24,7 +25,8 @@ public class GameKeeper : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        courseWeapon = shopController.selectedWeapon as Weapon;
+        courseWeapon = shopController.selectedCourseWeapon as Weapon;
+        turretWeapon = shopController.selectedTurret as Weapon;
 	}
 	
 	// Update is called once per frame

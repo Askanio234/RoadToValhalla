@@ -9,14 +9,15 @@ public class ShopController : MonoBehaviour {
 
     public GameObject descriptionPannel;
     public GameObject creditsPannel;
-    public BaseItem selectedWeapon;
+    public BaseItem selectedCourseWeapon;
+    public BaseItem selectedTurret;
 
     private BaseItem installedWeapon;
     private GameObject[] templates;
 	// Use this for initialization
 	void Start () {
         templates = GameObject.FindGameObjectsWithTag("ItemTemplate");
-        UpdateDescriptionPanel(selectedWeapon);
+        UpdateDescriptionPanel(selectedCourseWeapon);
         UpdateCreditsPannel();
 	}
 	
@@ -26,10 +27,16 @@ public class ShopController : MonoBehaviour {
     }
 
 
-    public void WeaponSelected(GameObject button)
+    public void CourseWeaponSelected(GameObject button)
     {
-        selectedWeapon = button.GetComponent<ShopTemplateRender>().item;
-        UpdateDescriptionPanel(selectedWeapon);
+        selectedCourseWeapon = button.GetComponent<ShopTemplateRender>().item;
+        UpdateDescriptionPanel(selectedCourseWeapon);
+    }
+
+    public void TurretSelected(GameObject button)
+    {
+        selectedTurret = button.GetComponent<ShopTemplateRender>().item;
+        UpdateDescriptionPanel(selectedTurret);
     }
 
     private void UpdateDescriptionPanel(BaseItem item)
@@ -72,7 +79,21 @@ public class ShopController : MonoBehaviour {
         UpdateCreditsPannel();
     }
 
-    
+    public void installTurret(GameObject itemTemplate)
+    {
+        BaseItem weapon = itemTemplate.GetComponent<ShopTemplateRender>().item;
+        if (!weapon.isBought)
+        {
+            BuyItem(weapon);
+        }
+        GameKeeper.gameKeeper.turretWeapon.isInstalled = false;
+        weapon.isInstalled = true;
+        GameKeeper.gameKeeper.turretWeapon = weapon as Weapon;
+        //Need to update all buttons
+        RenderAllButtons(templates);
+        UpdateCreditsPannel();
+    }
+
 
     private void UpdateCreditsPannel()
     {

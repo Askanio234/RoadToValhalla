@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour {
             showFloatingText(missle.GetDamage());
             missle.Explode();
             missle.Hit();
-        } else
+        } else if (projectile)
         {
             print("in projectile");
             health.GetDamage(projectile.GetDamage());

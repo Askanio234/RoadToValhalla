@@ -636,9 +636,9 @@ MonoBehaviour:
   thrusrerRightDown: {fileID: 198462621112617666}
   thrusterLeftUp: {fileID: 198475515674320056}
   thrusterLeftDown: {fileID: 198001408733142314}
-  rotationSpeed: 50
-  enginePower: 1
-  thrusterPower: 1
+  rotationSpeed: 65
+  enginePower: 1.5
+  thrusterPower: 2
   speedText: {fileID: 0}
 --- !u!114 &114952180838219128
 MonoBehaviour:
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543bf8c47e6d1e64792cb0078391bb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: 86ad104b08a6c734281195034d2cb3cc, type: 2}
+  Weapon: {fileID: 11400000, guid: 2dc1b91355ae5ca4ca01bef4bf7d6258, type: 2}
 --- !u!120 &120865470138425344
 LineRenderer:
   m_ObjectHideFlags: 1

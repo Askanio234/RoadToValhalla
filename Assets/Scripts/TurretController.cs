@@ -12,6 +12,7 @@ public class TurretController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Weapon = GameKeeper.gameKeeper.turretWeapon;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         gunPos = gameObject.transform.Find("Gun");
         spriteRenderer.sprite = Weapon.image;
